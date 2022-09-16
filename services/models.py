@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from business.models import Business
 
 STATUS = (
@@ -7,7 +8,7 @@ STATUS = (
 )
 
 class Order(models.Model):
-    username = models.CharField(max_length=50)
+    username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     offer_title = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
     address = models.CharField(max_length=100)

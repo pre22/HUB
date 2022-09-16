@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 from django.db import models
 
 class User(AbstractUser):
@@ -13,6 +14,6 @@ class User(AbstractUser):
 
 
 class Reviews(models.Model):
-    client_username = models.ForeignKey(User, on_delete=models.CASCADE)
+    client_username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     review_text = models.CharField(max_length=500)
     rating = models.CharField(max_length=50)
