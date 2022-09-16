@@ -6,7 +6,7 @@ STATUS = (
 )
 
 class Order(models.Model):
-    username =
+    username = models.CharField(max_length=50)
     offer_name = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
     address = models.CharField(max_length=100)
