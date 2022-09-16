@@ -14,6 +14,10 @@ class Order(models.Model):
     price = models.CharField(max_length=50)
     status = models.CharField(max_length=50, choices=STATUS)
 
+    def __str__(self):
+        return self.offer_name
+    
+
 
 class ServicePackage(models.Model):
     package_name = models.CharField(max_length=100)
@@ -23,4 +27,8 @@ class ServicePackage(models.Model):
     average_pricing = models.CharField(max_length=50)
     no_of_server = models.CharField(max_length=50)
     no_of_dishes = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.package_name
+    
 
