@@ -34,7 +34,8 @@ INSTALLED_APPS = [
 
     # Local app
     'accounts.apps.AccountsConfig',
-    'services.apps.ServicesConfig'
+    'services.apps.ServicesConfig',
+    'business.apps.BusinessConfig'
 ]
 
 MIDDLEWARE = [
