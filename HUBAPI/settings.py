@@ -82,6 +82,8 @@ DATABASES = {
             "HOST": config("HOST"),
             "PORT": config("PORT"),
         },
+    
+    },
 }
 
 
