@@ -42,6 +42,14 @@ AUTH_USER_MODEL = 'accounts.User'
 
 ACCOUNT_UNIQUE_EMAIL = True
 
+REST_FRAMEWORK = {
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+        ]
+
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
