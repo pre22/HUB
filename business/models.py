@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from accounts.models import User
+
 
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
