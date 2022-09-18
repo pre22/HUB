@@ -87,16 +87,13 @@ WSGI_APPLICATION = 'HUBAPI.wsgi.application'
 
 DATABASES = {
     'default': {
+
         'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            'service': 'my_service',
-            'passfile': '.my_pgpass'
-            # "NAME": config("DATABASE"),
-            # "USER": config("USER_NAME"),
-            # "PASSWORD": config("PASSWORD"),
-            # "HOST": config("HOST"),
-            # "PORT": config("PORT"),
-        },
+        "NAME": config("DATABASE"),
+        "USER": config("USER_NAME"),
+        "PASSWORD": config("PASSWORD"),
+        "HOST": config("HOST"),
+        "PORT": config("PORT"),
     
     },
 }
