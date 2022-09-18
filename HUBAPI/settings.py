@@ -89,12 +89,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'OPTIONS': {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": config("DATABASE"),
-            "USER": config("USER_NAME"),
-            "PASSWORD": config("PASSWORD"),
-            "HOST": config("HOST"),
-            "PORT": config("PORT"),
+            'service': 'my_service',
+            'passfile': '.my_pgpass'
+            # "NAME": config("DATABASE"),
+            # "USER": config("USER_NAME"),
+            # "PASSWORD": config("PASSWORD"),
+            # "HOST": config("HOST"),
+            # "PORT": config("PORT"),
         },
     
     },

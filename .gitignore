@@ -1,2 +1,5 @@
 .env
 .vscode
+settings.ini
+.pg_service_conf
+.my_pgpass
