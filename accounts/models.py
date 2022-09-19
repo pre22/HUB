@@ -7,6 +7,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     middle_name = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
+    username = models.CharField(max_length=100, unique=False, default="hubplugUser")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
