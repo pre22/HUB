@@ -5,7 +5,7 @@ from services.serializers import OrderSerializer, ServicePackageSerializer
 class OrderView(generics.ListCreateAPIView):
     ''' Handles Create Order form and Order History '''
     queryset = Order.objects.all()
-    serialzer_class = OrderSerializer
+    serializer_class = OrderSerializer
 
 class ServicePackageView(generics.ListCreateAPIView):
     ''' Handles Create Service Package form for Business and Business Service List '''

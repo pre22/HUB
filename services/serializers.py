@@ -5,7 +5,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ("offer-title", "description", "address", "date", "price")
+        fields = ("offer_title", "description", "address", "date", "price")
 
 
 class ServicePackageSerializer(serializers.ModelSerializer):
