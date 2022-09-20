@@ -1,4 +1,7 @@
-from rest_framework import generics
+from django.shortcuts import get_object_or_404
+from rest_framework import generics, status
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from business.models import Business
 from business.serializers import BusinessSerializer
 
@@ -11,10 +14,12 @@ class BusinessList(generics.ListAPIView):
     serializer_class = BusinessSerializer
 
 
-class AboutBusiness(generics.ListAPIView):
+class AboutBusiness(generics.RetrieveAPIView):
     ''' Business About Page '''
     queryset = Business.objects.all()
     serializer_class = BusinessSerializer
+    
+
 
 
 

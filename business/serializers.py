@@ -6,4 +6,4 @@ class BusinessSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Business
-        fields = "__all__"
+        fields = ("id", "name", "address", "description", "category", "photo","location",)
