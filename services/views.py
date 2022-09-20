@@ -12,9 +12,10 @@ class ServicePackageView(generics.ListCreateAPIView):
     queryset = ServicePackage.objects.all()
     serializer_class = ServicePackageSerializer
 
-# class ServicePackageDetailView(generics.RetrieveAPIView):
-#     ''' Returns the service details of a particular business '''
-#     queryset = ServicePackage.
+class ServicePackageDetailView(generics.RetrieveAPIView):
+    ''' Returns the service details of a particular business '''
+    queryset = ServicePackage.objects.all()
+    serializer_class = ServicePackageSerializer
 
     
 
