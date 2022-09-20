@@ -20,5 +20,5 @@ class Business(models.Model):
     location = models.CharField(max_length=100) #State/LGA
 
     def __str__(self):
-        return self.business_name
+        return self.name
     
