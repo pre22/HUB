@@ -8,8 +8,8 @@ STATUS = (
 )
 
 class Order(models.Model):
-    business_to = models.ForeignKey(Business, on_delete=models.CASCADE)
-    username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    business_to = models.ForeignKey(Business, on_delete=models.CASCADE) # Business that's recieving the order
+    username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # Username of the user creating the order
     offer_title = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
     address = models.CharField(max_length=100)
