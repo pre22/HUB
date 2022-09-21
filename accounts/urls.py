@@ -3,5 +3,5 @@ from accounts.views import ReviewView
 
 
 urlpatterns = [
-    path("reviews/", ReviewView.as_view(), name="review")
+    path("<int:business_id>/reviews/", ReviewView.as_view(), name="review")
 ]
