@@ -18,6 +18,7 @@ class Business(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     photo = models.ImageField(upload_to=None, max_length=None)
     location = models.CharField(max_length=100) #State/LGA
+    rating = models.CharField(max_length=50, default="0")
 
     def __str__(self):
         return self.name
