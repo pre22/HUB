@@ -1,7 +1,9 @@
 from rest_framework import generics
+from rest_framework.response import Response
 from business.models import Business
 from services.models import Order, ServicePackage
 from services.serializers import OrderSerializer, ServicePackageSerializer
+from HUBAPI.permissions import OwnContent
 
 class OrderView(generics.ListCreateAPIView):
     ''' Handles Create Order form and Order History '''
@@ -22,30 +24,25 @@ class OrderView(generics.ListCreateAPIView):
         serializer.save(username=us, business_to=biz)
     
 
-class OrderDetailView(generics.RetrieveUpdateAPIView):
+class OrderDetailView(generics.RetrieveAPIView):
     '''Returns detailed view of a business order'''
     queryset =  Order.objects.all()
     serializer_class = OrderSerializer
 
     # For returning details of order belonging to the business
-    def get_queryset(self):
+    def get_object(self):
+        id = self.kwargs.get("pk")
         business_id = self.kwargs.get("business_id")
-        queryset = Order.objects.filter(business_to_id=business_id)
+        queryset = Order.objects.get(business_to_id=business_id, id=id)
         return queryset
 
-    # Updates the order with the supplied pk
-    def update(self, request, *args, **kwargs):
-        data_to_change = {
-            'address': request.data.get("address"),
-            'date': request.data.get("date"),
-            'price': request.data.get("price")
-        }
-        # Partial update of the data
-        serializer = self.serializer_class(request.user, data=data_to_change, partial=True)
-        if serializer.is_valid():
-            self.perform_update(serializer)
+    
+class OrderUpdateView(generics.UpdateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_class = (OwnContent,)
 
-        return Response(serializer.data)
+
     
 
 class ServicePackageView(generics.ListCreateAPIView):
@@ -70,7 +67,7 @@ class ServicePackageDetailView(generics.RetrieveAPIView):
 
     def get_queryset(self):
         business_id = self.kwargs.get("business_id")
-        queryset = ServicePackage.objects.filter(business_id=business_id)
+        queryset = ServicePackage.objects.filter(business=business_id)
         return queryset
 
     
