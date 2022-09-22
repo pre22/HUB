@@ -38,6 +38,7 @@ class OrderDetailView(generics.RetrieveAPIView):
 
     
 class OrderUpdateView(generics.UpdateAPIView):
+    '''Updates the a given Order - Order can only be edited by the User that created it'''
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_class = (OwnContent,)
